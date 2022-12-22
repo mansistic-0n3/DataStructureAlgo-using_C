@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{			
+  int data;
+  struct node *nextpt;
+} *headpt;
+void print ()
+{
+  struct node *extra;
+  if (headpt == NULL)
+    {
+      printf ("List is empty");
+    }
+  else
+    {
+      extra = headpt;
+      while (extra != NULL)	
+	{
+	  printf ("%d  ", extra->data);
+	  extra = extra->nextpt;
+	}
+    }
+}
+void list (int n)
+{
+  struct node *new_node, *extra;
+  int data, l;
+  headpt = (struct node *) malloc (sizeof (struct node));
+  if (headpt == NULL)		// list is empty
+    {
+      printf ("list is empty");
+    }
+  else
+    {
+      printf ("Enter the data of node : ");
+      scanf ("%d", &data);
+      headpt->data = data;
+      headpt->nextpt = NULL;
+      extra = headpt;
+      for (l = 2; l <= n; l++)
+	{
+	  new_node = (struct node *) malloc (sizeof (struct node));
+	  if (new_node == NULL)
+	    {
+	      printf ("list is empty");
+	      break;
+	    }
+	  else
+	    {
+	      printf ("Enter the data of node : ", l);
+	      scanf ("%d", &data);
+	      new_node->data = data;
+	      new_node->nextpt = NULL;
+	      extra->nextpt = new_node;
+	      extra = extra->nextpt;
+	    }
+	}
+    }
+}
+void delete_At_end()
+{
+if(headpt -> nextpt == NULL)  
+{
+free(headpt); 
+headpt = NULL; 
+}
+struct node *extra = headpt,*prev_node;
+while(extra -> nextpt != NULL)
+{
+prev_node = extra;
+extra = extra -> nextpt; 
+}
+free(extra); 
+prev_node -> nextpt = NULL;
+}
+
+
+int main ()
+{
+  int n, data, pos;
+  printf ("Enter the size of nodes: ");
+  scanf ("%d", &n);
+  if (n == 0)
+    {
+      printf ("List is empty\n");
+      exit (0);
+    }
+  else
+    {
+      list (n);
+    }
+  printf ("The Doubly Linked List is :\n");
+  print ();
+  delete_At_end ();
+  printf ("\nAfter Deleting the last node the Linked List is :\n");
+  print ();
+  return 0;
+}

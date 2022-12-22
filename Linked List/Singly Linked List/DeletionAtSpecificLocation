@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main(){
+    int choice = 1;
+    int i=1,pos;
+    struct node *newnode, *start=NULL, *temp, *temp1;
+    while(choice){
+        newnode = (struct node*) malloc (sizeof(struct node));
+        printf("Enter data : ");
+        scanf("%d", &newnode -> data);
+        newnode -> next=NULL; 
+        if(start==NULL){
+            start = newnode;
+            temp= newnode;
+        }else{
+            temp -> next = newnode;
+            temp = newnode;
+        }
+     printf("Do you want to add more nodes(1/0): ");
+     scanf("%d", &choice);
+    } 
+    //display
+      temp = start;
+      while(temp != NULL){
+          printf("Data is %d \n", temp->data);
+         temp=temp->next;
+     }
+     //at specific pos
+      printf("Position from which you wamt to delete: ");
+      scanf("%d", &pos); 
+        temp=start;  
+        for(i=0;i<pos;i++)  
+        {  
+            temp1 = temp;       
+            temp = temp->next;  
+            if(temp == NULL)  
+            {  
+                printf("\nThere are less than %d elements in the list..\n",pos);  
+                return;  
+            }  
+        }  
+        temp1 ->next = temp ->next;  
+        free(temp);
+        printf("\nDeleted node \n ",pos); 
+      //display
+     temp = start;
+     while(temp != NULL){
+         printf("Data after deletion %d \n", temp->data);
+        temp=temp->next;}
+}

@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    int row, col, i, j, flag=0;
+    int a[100][100];
+    
+     printf("Enter the number of rows:");
+     scanf("%d", &row);
+     
+     printf("Enter the number of columns:");
+     scanf("%d", &col);
+     
+     //1st matrix
+      printf("Enter the elements of  matrix:\n");
+     for (i=0;i<row;i++)
+     {
+         for(j=0;j<col;j++)
+         {
+           
+            scanf("%d", &a[i][j]);
+         }
+     }
+     //print matrix
+     printf("Matrix:\n");
+      for (i=0;i<row;i++)
+     {
+         for(j=0;j<col;j++)
+         {
+            printf("%d  ", a[i][j]);
+             if(j==col-1){
+                printf("\n\n");
+             }
+         }
+     }
+     
+     //Identity
+    for (i=0;i<row;i++)
+        {
+            for(j=0;j<col;j++)
+                {
+                    if(i==j && a[i][j]==1)
+                        {
+                            flag=1;
+                        }
+                    else if(i!=j && a[i][j]==0)
+                        {
+                            flag=0;
+                        }
+                    }
+            }
+           if(flag==1)
+           {
+                printf("\nIdentity Matrix");
+              }
+              else
+              {
+                  printf("\nNot Identity Matrix"); 
+              } 
+    return 0;
+}

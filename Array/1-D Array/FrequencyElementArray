@@ -1,0 +1,43 @@
+#include <stdio.h>
+int main() {
+    int count, n, i , j;
+    int a[100], b[100];
+    
+    //length
+    printf("Number of elements in array :");
+    scanf("%d",&n);
+    
+    //elements
+    printf("Enter elements of array :\n");
+    for(int i=0;i<n;i++){
+        scanf("%d", &a[i]);
+        b[i]=-1;
+    }
+    
+    //print
+    printf("Array : ");
+    for(int i=0;i<n;i++){
+        printf("%d  ", a[i]);  
+    }
+    for(int i=0;i<n;i++){
+        count=1;
+        for(int j=i+1;j<n;j++){
+            if (a[i]==a[j])
+            {
+                count++;
+                b[j]=0;
+            }
+        }
+        if (b[i]!=0){
+            b[i]=count;
+        }
+    }
+     
+    printf("\nOccurence of elements :\n");
+    for(int i=0;i<n;i++){
+        if(b[i]!=0){
+            printf("%d occurs %d times\n", a[i], b[i]);
+        }
+    }
+    return 0;
+}

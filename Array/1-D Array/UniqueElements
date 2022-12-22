@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main()
+{
+      int a[100], n,count=0;
+    int i, j, k;
+	
+   //Enter the size of an array
+    printf("Enter the size of an array :");
+    scanf("%d",&n);
+   
+    //Enter the elements of an array
+    printf("Enter elements of array\n");
+    for(i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+	    }
+	 
+	//Printing the array without sorting  
+	printf("Array is:\n");
+	for(i=0;i<n;i++)
+        {
+            printf("%d   ",a[i]);
+	    }
+ //Unique Element in an array
+    printf("\nUnique elements are: \n");
+    for(i=0; i<n; i++)
+    {
+        count=0;
+        for(j=0,k=n; j<k+1; j++)
+        {
+            //Increment the count by 1 if duplicate
+            if (i!=j)
+            {
+		       if(a[i]==a[j])
+              {
+                 count++;
+               }
+             }
+        }
+       
+       //print the unique element
+       if(count==0)
+        {
+          printf("%d ",a[i]);
+        }
+    }
+       printf("\n\n");
+}

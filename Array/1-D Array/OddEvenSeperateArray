@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main()
+{
+    int a1[10], a2[10], a3[10];
+    int i,j=0,k=0,n;
+	
+	//length
+    printf("Number of elements in array :");
+    scanf("%d",&n);
+    
+    //elements
+    printf("\nEnter elements of array :\n");
+    for(int i=0;i<n;i++){
+        scanf("%d", &a1[i]);
+    }
+    
+    //print
+    printf("Array : ");
+    for(int i=0;i<n;i++){
+        printf("%d  ", a1[i]);
+        
+    }
+ //Checking if array is even or odd by operation
+    for(i=0;i<n;i++){
+	    if (a1[i]%2 == 0)
+    	{
+    	   a2[j] = a1[i];
+	       j++;
+	    }
+	    else
+	    {
+	       a3[k] = a1[i];
+	       k++;
+	    }
+    }
+ 
+    //Even or odd print
+    printf("\nEven elements are : \n");
+    for(i=0;i<j;i++)
+        {
+	    printf("%d ",a2[i]);
+        }
+
+    printf("\nOdd elements are :\n");
+    for(i=0;i<k;i++)
+        {
+	    printf("%d ", a3[i]);
+        }
+    printf("\n\n");	
+ 
+
+    return 0;
+}

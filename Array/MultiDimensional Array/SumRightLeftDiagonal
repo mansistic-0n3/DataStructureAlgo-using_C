@@ -1,0 +1,60 @@
+#include <stdio.h>
+int main() {
+    int row, col, i, j, lsum=0, rsum=0;
+    int a[100][100];
+    
+     printf("Enter the number of rows:");
+     scanf("%d", &row); 
+     printf("Enter the number of columns:");
+     scanf("%d", &col); 
+     //1st matrix
+      printf("Enter the elements of  matrix:\n");
+     for (i=0;i<row;i++)
+     {
+         for(j=0;j<col;j++)
+         {
+            scanf("%d", &a[i][j]);
+         }
+     }
+     //print matrix
+     printf("Matrix:\n");
+      for (i=0;i<row;i++)
+     {
+         for(j=0;j<col;j++)
+         {
+            printf("%d  ", a[i][j]);
+             if(j==col-1){
+                printf("\n\n");
+             }
+         }
+     }
+     //sum left
+    for (i=0;i<row;i++)
+        {
+            col--;
+            for(j=0;j<row;j++)
+                {
+                    if(j==col)
+                        {
+                           lsum+=a[i][j] ;
+                        }
+                }
+        }
+        printf("\nSum of Left diagonal is : %d", lsum);
+           
+    //sum right
+    for (i=0;i<row;i++)
+        {
+            for(j=0;j<row;j++)
+                {
+                    if(j==i)
+                        {
+                           rsum+=a[i][j] ;
+                        }
+                }
+        }
+           
+        printf("\nSum of Right diagonal is : %d", rsum);
+     
+    return 0;
+}
