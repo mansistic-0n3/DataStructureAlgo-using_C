@@ -1,3 +1,10 @@
+// Create a menu-driven program to implement following operations on
+// stack using Arrays:
+// (a) Push
+// (b) Pop
+// (c) Peek
+// (d)Display
+
 #include<stdio.h>
 int stack[5];
 int top=-1;
